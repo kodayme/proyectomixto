@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+       {% block title %} {% endblock %}
+    </title>
+
+        {% load static %}
+
+    <link rel="stylesheet" href=" {% static 'start/vendor/bootstrap/css/bootstrap.min.css' %}">
+
+    <link href="{% static 'start/stilos/fondo.css' %}" rel="stylesheet">
+
+    <script src="{% static 'start/vendor/jquery/jquery-1.6.3.min.js' %}"></script>
+    <script src="{% static 'start/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/start/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'start/vendor/jquery/dinamica.js' %}"></script>
+    <script src="{% static 'start/vendor/jquery/easing plugin.js' %}"></script>
+
+                                            {% load bootstrap5 %}
+                                            {% bootstrap_css %}
+                                            {% bootstrap_javascript %}
+
+</head>
+
+<body>
+<!--==============================================BOTONES DE LOS LINKS===================================================================================-->
+
+<nav class="navbar navbar-expand-sm bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav" id="blurring">
+
+          <li class="nav-item" >
+            <a class="nav-link active" aria-current="page" href="{% url 'pagina_inicial' %}"><span class="btn btn-success bg-dark">Inicio</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'los_contenidos' %}"><span class="btn btn-success bg-dark">Contenido</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'los_servicios' %}"><span class="btn btn-success ">Servicios</span></a>
+        </li>
+
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'pagina_contacto' %}"><span class="btn btn-danger bg-faded">Contacto</span></a>
+        </li>
+          {% endif %}
+
+            {% if user.is_authenticated %}
+                    <li class="nav-item">
+          <a class="nav-link" href="{% url 'store' %}"><span class="btn btn-success bg-transparent">Tienda</span></a>
+        </li>
+            {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" style="text-transform: uppercase">
+    {% if user.is_authenticated %}
+
+    <h2 class="btn btn-primary" style="margin-left: -5000px;" id="usuario">salu2: {{user.username}}</h2>
+    <h1 style="float: right"><a href="{% url 'cierre_session' %}" class="btn btn-info">cerrar session</a></h1>
+    {% elif "registrado" in request.GET %}
+    <h1 class="btn btn-success" style="margin: auto;float: right" id="aviso_de_registro">¡USUARIO REGISTRADO!</h1>
+
+    {% else %}
+
+    <h1 style="text-align: center" ><a class="btn btn-warning" href="{% url 'registro' %}">¡registrate o inicia session para ver contenido!</a></h1>
+    <h1 style="text-align: center"  > <a class="btn btn-dark" href="{% url 'inicio_session' %}" >login</a> </h1>
+    {% endif %}
+
+</div>
+
+
+
+<!--=================================================================================================================================-->
+                                {% block content %}
+
+
+                                   {% endblock %}
+
+
+
+
+
+</body>
+</html>

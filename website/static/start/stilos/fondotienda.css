@@ -1,0 +1,27 @@
+body{
+
+    background-image: url("../img/Tomb Raider Lara wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#tema{
+    color: #e0c033;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+ul{
+    margin: auto;
+
+}
+
+#inicio{
+
+    width: 50%;
+    float: right;
+}
+
+#letra{
+    color: #0a3622;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TIENDA</title>
+
+                                                  {% load static %}
+        <link href="{% static 'start/stilos/fondoregistro.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="{% static 'start/vendor/jquery/jquery-1.6.3.min.js' %}"></script>
+        <script src="{% static 'start/vendor/jquery/easing plugin.js' %}" ></script>
+        <script src="{% static 'start/vendor/jquery/dinamica.js' %}"></script>
+
+
+                                            {% load bootstrap5 %}
+                                            {% bootstrap_css %}
+                                            {% bootstrap_javascript %}
+</head>
+
+<body>
+
+<!--==============================================BOTONES DE LOS LINKS===================================================================================-->
+
+<nav class="navbar navbar-expand-sm bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav" id="blurring">
+
+          <li class="nav-item" >
+            <a class="nav-link active" aria-current="page" href="{% url 'pagina_inicial' %}"><span class="btn btn-success bg-dark">Inicio</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'los_contenidos' %}"><span class="btn btn-success bg-dark">Contenido</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'los_servicios' %}"><span class="btn btn-success ">Servicios</span></a>
+        </li>
+
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'pagina_contacto' %}"><span class="btn btn-danger bg-faded">Contacto</span></a>
+        </li>
+
+
+                    <li class="nav-item">
+          <a class="nav-link" href="{% url 'store' %}"><span class="btn btn-success bg-transparent">Tienda</span></a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--=================================================================================================================================-->
+<div class="container" style="text-align: center; color: #b3e718">
+    <h1>TIENDA MIXTA</h1>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        {% for item in articulos %}
+        <div class="col-md-3">
+
+            <div class="card" style="width: 100%; background-color: #0a0505; color: yellow; margin: 10px 10px">
+  <img src="{{item.imagen.url}}" class="card-img-top" alt="...">
+  <div class="card-body" style="text-align: center">
+    <h5 class="card-title">{{item.nombre}}</h5>
+    <p>{{item.precio}}$</p>
+      <a href="{% url 'consulta_tienda' %}" class="btn btn-primary" id="consultas0">CONSULTAR</a>
+
+      <p id="ocultar">{{item.descripcion}}</p>
+  </div>
+</div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

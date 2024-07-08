@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REGISTRO</title>
+
+                                                      {% load static %}
+        <link href="{% static 'start/stilos/fondoregistro.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="{% static 'start/vendor/jquery/jquery-1.6.3.min.js' %}"></script>
+        <script src="{% static 'start/vendor/jquery/easing plugin.js' %}" ></script>
+        <script src="{% static 'start/vendor/jquery/dinamica.js' %}"></script>
+
+
+                                            {% load bootstrap5 %}
+                                            {% bootstrap_css %}
+                                            {% bootstrap_javascript %}
+
+
+</head>
+
+<div class="container" style="text-align: center;color: #23da1c;font-size: 50px">
+    <a href="{% url 'pagina_inicial' %}" id="blur"><i class="bi bi-house-door-fill" style="color: red"></i></a>
+
+    <h1 id="usuarios" style="margin-left: -5550px">REGISTRO DE USUARIOS</h1>
+</div>
+
+<body>
+
+   <form class="container" method="post" action="" style=";color: #b3e718;margin-top: -5550px" id="regis">
+       {% csrf_token %}
+    <table style="margin: 30px auto">
+        {{formulario.as_table}}
+
+        {% if messages %}
+        {%for i in messages %}
+
+        {{i}}
+
+        {% endfor %}
+        {% endif %}
+
+    </table>
+       <button type="submit" class="btn btn-success" style="margin-left: 350px">Registrar</button>
+       <button type="reset" class="btn btn-info" style="margin-left: 250px">Limpiar</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+body{
+
+    background-image: url("../img/principal.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*background-position: center;*/
+
+}
+
+#anim{
+
+    margin: auto;
+    margin-top: -550px;
+
+}
+
+ul{
+    margin: auto;
+}

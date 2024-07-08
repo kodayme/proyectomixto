@@ -1,0 +1,36 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block title %}
+Contactos
+{% endblock %}
+
+{% block content %}
+                        <link href="{% static '/start/stilos/fondopreguntas.css' %}" rel="stylesheet">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+<div class="container" style="text-align: center;background-color: #0a0505">
+
+    <h1 style="color: #0a53be">CONTÁCTANOS</h1>
+
+</div>
+
+<h1 style="text-align: center; text-transform: uppercase; margin-left: -300px" class="btn btn-warning" id="contacto">pulsar<p><i class="bi bi-hand-index-fill"></i></p></h1>
+
+
+    {% if "enviado" in request.GET %}
+    <h1 class="btn btn-success" style="margin: auto;float: right" id="aviso">¡CORREO ENVIADO CORRECTAMENTE!</h1>
+    {% endif %}
+
+<div class="container " id="formulario" style="width: 50%; color: #40be1d; text-transform: uppercase; margin-left: -550px">
+
+    <form action="" method="POST">{% csrf_token %}
+            <table style="margin:20px auto">
+                {{contacto.as_table}}
+            </table>
+        <input type="submit" value="enviar" style="margin-left: 300px" class="btn btn-dark">
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+body{
+
+    background-image: url("../img/shadow-of-the-tomb-raider-lara-croft-2021-0k.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*background-position: center;*/
+
+}
+
+ul{
+    margin: auto;
+}
+
+#registro{
+
+    margin-top: -550px;
+}

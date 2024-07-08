@@ -1,0 +1,40 @@
+body{
+
+    background-image: url("../img/3D, Windows, Logo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*background-position: center;*/
+
+}
+
+#anim{
+
+    margin: auto;
+    margin-top: -550px;
+
+}
+
+#tema{
+    color: #e0c033;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+ul{
+    margin: auto;
+
+}
+
+#inicio{
+
+    width: 50%;
+    float: right;
+}
+
+#letra{
+    color: #0a3622;
+}
+
+
+
+
